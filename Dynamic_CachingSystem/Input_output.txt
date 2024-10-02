@@ -1,0 +1,17 @@
+Input:
+addCacheLevel(3, 'LRU') # Add L1 cache with size 3 and LRU
+policy
+addCacheLevel(2, 'LFU') # Add L2 cache with size 2 and LFU
+policy
+put("A", "1")
+put("B", "2")
+put("C", "3")
+get("A") # Returns "1" from L1
+put("D", "4") # L1 is full, evicts least recently used
+get("C")
+
+output:
+
+
+L1 Cache: [A: 1, D: 4, C: 3]
+L2 Cache: [B: 2]
